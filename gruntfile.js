@@ -3,21 +3,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     concat: {
       options: {
-        // define a string to put between each file in the concatenated output
         separator: ';'
       },
       dist: {
-        // the files to concatenate
         src: ['js/src/*.js'],
-        // the location of the resulting JS file
         dest: 'js/dist/script.min.js'
       }
     },
     uglify: {
-      // the files to concatenate
+      dist: {
         src: ['js/dist/script.min.js'],
-        // the location of the resulting JS file
         dest: 'js/dist/script.min.js'
+      }
     }
   });
 
@@ -25,6 +22,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['concat', 'uglify']);
-
 
 };
